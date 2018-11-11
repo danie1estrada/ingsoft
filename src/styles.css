@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.section-container {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}

@@ -4,14 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    SignInComponent
+    RegisterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule
