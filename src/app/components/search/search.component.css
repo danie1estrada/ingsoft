@@ -1,0 +1,14 @@
+.img {
+    max-width: 9.5em;
+    height: 8em;
+}
+
+.product-row {
+    padding-top: 1em;
+    border-radius: 5px;
+    border: solid 1px #cccccc;
+}
+
+.product-row:hover {
+    cursor: pointer;
+}

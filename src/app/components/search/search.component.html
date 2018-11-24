@@ -1,15 +1,52 @@
+<app-navbar></app-navbar>
+<br>
 <div class="container">
     <form action="" class="">
         <div class="row pt-3 pb-3">
             <div class="col-10">
-                <input type="text" class="form-control form-control-sm" name="" id="" placeholder="Buscar...">
+                <input type="text" class="form-control" name="" id="" placeholder="Buscar...">
             </div>
             
             <div class="col-2">
-                <input type="button" class="btn btn-sm btn-primary w-100 float-right" value="Buscar">
+                <input type="button" class="btn btn-primary w-100 float-right" value="Buscar">
             </div>
         </div>
     </form>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <button class="list-group-item list-group-item-action active">Categorias</button>
+                <button class="list-group-item list-group-item-action">Categoria #1</button>
+                <button class="list-group-item list-group-item-action">Categoria #2</button>
+                <button class="list-group-item list-group-item-action">Categoria #3</button>
+                <button class="list-group-item list-group-item-action">Categoria #4</button>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div *ngFor="let a of array" class="row product-row mb-3">
+                <div class="col-md-2">
+                    <img src="../../../assets/images/macbook.jpg" class="img" alt="d">
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col">
+                            <a href="" class="float-left">Product name</a>
+                        </div>
+                        <div class="col">
+                           <p class="float-right">Price</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="col">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, eligendi? Culpa deserunt pariatur sint, non, adipisci quae aperiam dolor tempore rerum alias neque doloribus cupiditate dolores velit qui, ipsa nesciunt?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- TODO: Componente para desplegar productos -->
 </div>

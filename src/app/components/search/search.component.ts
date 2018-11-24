@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  array = [0, 0, 0, 0, 0, 0, 0, 0]
   constructor() { }
 
   ngOnInit() {
