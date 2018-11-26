@@ -1,24 +1,24 @@
 <div class="section-container">
     <br>
-    <form class="form col-md-12 center">
+    <form (ngSubmit)="login()" class="form col-md-12 center">
         <h3>Iniciar sesión</h3>
 
         <div class="form-group">
             <label for="" >Usuario</label>
-            <input type="text" class="form-control" name="" id="">
+            <input [(ngModel)]="email" type="text" name="email" class="form-control">
         </div>
 
         <div class="form-group">
             <label for="" >Contraseña</label>
-            <input type="password" class="form-control" name="" id="">
+            <input [(ngModel)]="password" type="password" name="password" class="form-control">
         </div>
 
-        <div class="alert alert-danger" role="alert">
+        <div *ngIf="loginError" class="alert alert-danger" role="alert">
             Error al iniciar sesión.
         </div>
 
         <div class="form-group">
-            <input type="button" value="Ingresar" class="btn btn-primary">
+            <input type="submit" value="Ingresar" class="btn btn-primary" (click)="login()">
         </div>
     </form>
 </div>

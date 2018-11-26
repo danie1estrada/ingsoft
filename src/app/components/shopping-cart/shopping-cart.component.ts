@@ -1,3 +1,5 @@
+import { ProductService } from '../../services/product/product.service';
+import { UserService } from '../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  private items: any[];
+  private subtotal: number = 0;
+
+  constructor(
+    private productService: ProductService,
+    private userService: UserService
+  ) {
+    userService.checkAuth();
+
+    productService.getCart(userService.getUserID())
+    .then((results: any[]) => {
+      this.items = results;
+      this.items.forEach(item => this.subtotal += item.amount);
+    })
+    .catch(err => console.log(err));
+  }
 
   ngOnInit() {
   }

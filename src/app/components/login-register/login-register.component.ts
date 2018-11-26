@@ -1,4 +1,6 @@
+import { UserService } from '../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-register',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginRegisterComponent implements OnInit {
 
-  constructor() { }
+  private registerError: boolean = false;
+  private loginError: boolean = false;
+
+  constructor(
+    private userService: UserService,
+    private router : Router) {
+      if (userService.isAuth()) {
+        router.navigate(['products']);
+      }
+  }
 
   ngOnInit() {
   }
-
 }

@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <app-login></app-login>
+        <div class="col-md-5">
+            <app-login [loginError]="loginError"></app-login>
         </div>
         <div class="col">
-            <app-register></app-register>
+            <app-register [registerError]="registerError"></app-register>
         </div>
     </div>
 </div>

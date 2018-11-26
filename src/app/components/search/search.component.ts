@@ -1,3 +1,5 @@
+import { ProductService } from '../../services/product/product.service';
+import { Product } from '../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  array = [0, 0, 0, 0, 0, 0, 0, 0]
-  constructor() { }
+  private products: Product[];
+  private categories: any[];
+
+  constructor(private productService: ProductService) {
+    productService.getProducts()
+    .then((result: Product[]) => this.products = result)
+    .catch(err => console.log(err));
+
+    productService.getCategories()
+    .then((result: any[]) => this.categories = result)
+    .catch(err => console.log('Error', err));
+  }
 
   ngOnInit() {
   }

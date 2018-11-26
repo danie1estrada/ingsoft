@@ -2,31 +2,38 @@
 <br>
 <div class="container">
     <h4>Carrito de compras</h4>
+    <br>
     <div class="row">
         <div class="col-md-10">
-            <table class="table">
-                <tr>
-                    <th class="col-6">Producto</th>
-                    <th class="col-2">Precio</th>
-                    <th class="col-2">Cantidad</th>
-                    <th class="col-2"></th>
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let item of items">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.amount }}</td>
                 </tr>
                 <tr>
-                    <td>Product name</td>
-                    <td>$1000</td>
-                    <td>1</td>
-                    <td><button class="btn btn-link">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><b>Subtotal: $</b></td>
-                </tr>
             </table>
+            <div class="row">
+                <div class="col">
+                    <p class="float-right">
+                        <b>Subtotal: $ {{ subtotal }}</b>
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="col">
-            <h5>Total: $</h5>
+            <h5>Total: $ {{ subtotal }}</h5>
             <button class="btn btn-primary btn-block">Comprar</button>
         </div>
     </div>
