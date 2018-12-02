@@ -4,6 +4,7 @@ import { Product } from '../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { url } from '../../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
+  
+  private imageURL = `${url}public/images/`;
   private quantity: number = 1;
   private alert: boolean = false;
   private product: Product = {
@@ -38,7 +40,7 @@ export class ProductComponent implements OnInit {
 
       productService.getProduct(id)
       .then((result: Product[]) => this.product = result[0])
-      .catch(err => router.navigate(['products']));
+      .catch(err => router.navigate(['not-found']));
     });
   }
 

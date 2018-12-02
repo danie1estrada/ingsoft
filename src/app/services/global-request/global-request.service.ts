@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { url } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalRequestService {
 
-  public baseURL: string = 'http://localhost:3000/';
+  public baseURL: string = url;
 
   constructor(private http: HttpClient) { }
 

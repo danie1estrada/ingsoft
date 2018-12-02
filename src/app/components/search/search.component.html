@@ -24,7 +24,7 @@
         <div class="col-md-10">
             <div *ngFor="let product of products" class="row product-row mb-3">
                 <div class="col-md-2">
-                    <img src="../../../assets/images/macbook.jpg" class="img" alt="d">
+                    <img src="{{ imageURL }}{{ product.image }}" class="img">
                 </div>
                 <div class="col-md-10">
                     <div class="row">

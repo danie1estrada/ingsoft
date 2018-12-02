@@ -1,6 +1,8 @@
 import { GlobalRequestService } from '../global-request/global-request.service';
 import { Product } from '../../models/product.model';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { url } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class ProductService {
 
   private url: string = 'api/products';
 
-  constructor(private globalRequest: GlobalRequestService) { }
+  constructor(private globalRequest: GlobalRequestService, private http: HttpClient) { }
 
   public getProducts() {
     return this.globalRequest.get(this.url);
@@ -23,8 +25,8 @@ export class ProductService {
     return this.globalRequest.get(`${this.url}/categories/${id}`);
   }
 
-  public publishProduct(product: any) {
-    return this.globalRequest.post(product, this.url);
+  public publishProduct(data: FormData) {
+    return this.http.post(`${url}${this.url}`, data).toPromise();
   }
 
   public addToCart(item: any) {

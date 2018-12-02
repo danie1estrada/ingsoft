@@ -1,6 +1,7 @@
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../models/product.model';
 import { Component, OnInit } from '@angular/core';
+import { url } from '../../../environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -13,6 +14,7 @@ export class SearchComponent implements OnInit {
   private aux: Product[];
   private categories: any[];
   private searchString: string = '';
+  private imageURL = `${url}public/images/`;
 
   constructor(private productService: ProductService) {
     productService.getProducts()

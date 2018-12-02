@@ -26,15 +26,9 @@
             <textarea [(ngModel)]="product.description" name="description" class="form-control" cols="30" rows="5"></textarea>
         </div>
         
-        <div *ngIf="false" class="form-group">
+        <div class="form-group">
             <label for="">Imagen</label>
-            <input type="file" name="" id="" class="form-control">
-        </div>
-
-        <div *ngIf="false" class="form-group">
-            <div class="row d-flex justify-content-center align-items-center">
-                <img src="../../../assets/images/macbook.jpg" alt="" class="center">
-            </div>
+            <input type="file" (change)="readUrl($event)" name="image" class="form-control">
         </div>
         
         <input type="submit" value="Publicar" class="btn btn-primary btn-block">
