@@ -11,6 +11,7 @@ export class ShoppingCartComponent implements OnInit {
 
   private items: any[];
   private subtotal: number = 0;
+  private successful: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -29,4 +30,26 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
   }
 
+  private async purchase() {
+    let purchaserEmail = JSON.parse(localStorage.getItem('session')).email;
+    let purchaserID = this.userService.getUserID();
+
+    for (let i = 0; i < this.items.length; i++) {
+      let body = {
+        purchaserID,
+        purchaserEmail,
+        product: this.items[i].name,
+        vendorEmail: this.items[i].vendorEmail
+      }
+
+      try {
+        console.log(await this.productService.purchase(body));
+        this.items.splice(i, 1);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    if (this.items.length == 0) this.successful = true;
+  }
 }

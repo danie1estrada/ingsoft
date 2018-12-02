@@ -30,7 +30,7 @@ export class PublishProductComponent implements OnInit {
     .then((result: any[]) => this.categories = result)
     .catch(err => console.log(err));
 
-    this.product.vendorID = JSON.parse(localStorage.getItem('login')).id;
+    this.product.vendorID = JSON.parse(localStorage.getItem('session')).id;
   }
 
   ngOnInit() {

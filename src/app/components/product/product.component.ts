@@ -3,6 +3,7 @@ import { UserService } from '../../services/user/user.service';
 import { Product } from '../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -27,7 +28,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private userService: UserService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private router: Router
   ) {
     userService.checkAuth();
 
@@ -36,8 +38,8 @@ export class ProductComponent implements OnInit {
 
       productService.getProduct(id)
       .then((result: Product[]) => this.product = result[0])
-      .catch(err => console.log(err));
-    })
+      .catch(err => router.navigate(['products']));
+    });
   }
 
   ngOnInit() {
@@ -50,12 +52,8 @@ export class ProductComponent implements OnInit {
       quantity: this.quantity
     }
 
-    console.log(item);
     this.productService.addToCart(item)
-    .then(result => {
-      console.log(result)
-      this.alert = true;
-    })
+    .then(result => this.alert = true)
     .catch(err => console.log(err));
   }
 

@@ -15,7 +15,7 @@ export class UserService {
     private router: Router) { }
 
   public getUserID() {
-    return JSON.parse(localStorage.getItem('login')).id;
+    return JSON.parse(localStorage.getItem('session')).id;
   }
 
   public login(credentials: any) {
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   public logout() {
-    localStorage.removeItem('login');
+    localStorage.removeItem('session');
     this.router.navigate(['login']);
   }
 
@@ -32,14 +32,14 @@ export class UserService {
   }
 
   public isAuth(): boolean {
-    let login = JSON.parse(localStorage.getItem('login'));
+    let login = JSON.parse(localStorage.getItem('session'));
 
     return login ? true : false;
   }
 
   public checkAuth(): void {
     if (!this.isAuth()) {
-      this.router.navigate(['login']);
+      this.router.navigate(['session']);
     }
   }
 }

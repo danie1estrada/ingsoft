@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router) {
+    private router: Router
+  ) {
       this.credentials = new EventEmitter();
   }
 
@@ -30,8 +31,8 @@ export class LoginComponent implements OnInit {
     this.userService.login(credentials)
     .then(result => {
       if (result == null) throw new Error('Invalid credentials');
-
-      localStorage.setItem('login', JSON.stringify(result));
+      
+      localStorage.setItem('session', JSON.stringify(result));
       this.router.navigate(['products']);
       this.loginError = false;
     })

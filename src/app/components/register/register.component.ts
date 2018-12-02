@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.userService.register(this.userData)
       .then(result => {
-        localStorage.setItem('login', JSON.stringify(result));
+        localStorage.setItem('session', JSON.stringify(result));
         this.router.navigate(['products']);
         this.registerError = false;
       })

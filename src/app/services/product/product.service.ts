@@ -38,4 +38,8 @@ export class ProductService {
   public getCategories() {
     return this.globalRequest.get(`${this.url}/categories`);
   }
+
+  public purchase(body) {
+    return this.globalRequest.post(body, `${this.url}/purchase`);
+  }
 }

@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   constructor(private userService: UserService) {
     if (userService.isAuth()) {
       this.authenticated = true;
-      this.user = JSON.parse(localStorage.getItem('login'));
+      this.user = JSON.parse(localStorage.getItem('session'));
       this.name = `${this.user.name} ${this.user.lastName}`;
     }
   }

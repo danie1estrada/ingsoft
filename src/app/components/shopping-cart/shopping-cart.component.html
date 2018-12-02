@@ -19,22 +19,28 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.description }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>{{ item.amount }}</td>
+                    <td>$ {{ item.price | number:'1.2-2' }}</td>
+                    <td>$ {{ item.amount | number:'1.2-2' }}</td>
                 </tr>
                 <tr>
             </table>
             <div class="row">
                 <div class="col">
                     <p class="float-right">
-                        <b>Subtotal: $ {{ subtotal }}</b>
+                        <b>Subtotal: $ {{ subtotal | number:'1.2-2' }}</b>
                     </p>
                 </div>
             </div>
         </div>
         <div class="col">
-            <h5>Total: $ {{ subtotal }}</h5>
-            <button class="btn btn-primary btn-block">Comprar</button>
+            <h5>Total: $ {{ subtotal | number:'1.2-2' }}</h5>
+            <button class="btn btn-primary btn-block" (click)="purchase()">Comprar</button>
         </div>
+    </div>
+    <div *ngIf="successful" class="alert alert-success alert-dismissible fade show" role="alert">
+        ¡Compra exitosa!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 </div>

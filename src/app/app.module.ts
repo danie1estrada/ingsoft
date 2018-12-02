@@ -15,6 +15,7 @@ import { UserService } from './services/user/user.service'
 import { PublishProductComponent } from './components/publish-product/publish-product.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductComponent } from './components/product/product.component';
@@ -26,12 +27,13 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent,
-    RegisterComponent,
     SearchComponent,
-    LoginRegisterComponent,
-    ShoppingCartComponent,
+    NavbarComponent,
     ProductComponent,
+    RegisterComponent,
+    NotFoundComponent,
+    ShoppingCartComponent,
+    LoginRegisterComponent,
     PublishProductComponent
   ],
   imports: [

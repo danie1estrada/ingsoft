@@ -10,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   private products: Product[];
+  private aux: Product[];
   private categories: any[];
+  private searchString: string = '';
 
   constructor(private productService: ProductService) {
     productService.getProducts()
-    .then((result: Product[]) => this.products = result)
+    .then((result: Product[]) => this.products = this.aux = result)
     .catch(err => console.log(err));
 
     productService.getCategories()
@@ -25,4 +27,16 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  public search() {
+    let s = this.searchString.toLowerCase();
+
+    this.products = this.aux.filter(product => {
+      if (s == null || s == '') return true;
+      return (product.name.toLowerCase().includes(s) || product.description.toLowerCase().includes(s));
+    });
+  }
+
+  public count(): number {
+    return this.products != undefined ? this.products.length : 0;
+  }
 }
